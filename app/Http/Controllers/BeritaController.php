@@ -17,7 +17,7 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $berita = Berita::latest()->get();
+        $berita = Berita::all();
 
         return view('admin.berita', compact('berita'));
     }
@@ -152,6 +152,6 @@ class BeritaController extends Controller
 
         return redirect()
             ->route('admin.berita')
-            ->with('success', 'Berhasil mengahpus berita');
+            ->with('success', 'Berhasil menghapus berita');
     }
 }

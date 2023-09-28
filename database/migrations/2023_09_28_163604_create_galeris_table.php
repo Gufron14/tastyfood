@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('artikel', function (Blueprint $table) {
-            //
+        Schema::create('galeris', function (Blueprint $table) {
+            $table->id();
+            $table->string('galeri');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('berita', function (Blueprint $table) {
-            $table->text('judul')->change();
-        });
+        Schema::dropIfExists('galeris');
     }
 };

@@ -10,7 +10,7 @@ class ViewController extends Controller
 {
     public function news()
     {
-        $berita = Berita::latest()->limit(3)->get();
+        $berita = Berita::latest()->limit(1)->get();
 
         return view('news', compact('berita'));
     }
