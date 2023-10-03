@@ -28,21 +28,9 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="berita">
+        <a class="nav-link" href="{{ route('posts') }}">
             <i class="fas fa-newspaper"></i>
-            <span>Berita</span></a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="draft">
-            <i class="fas fa-file-alt"></i>
-            <span>Draft</span></a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="galeri">
-            <i class="fas fa-image"></i>
-            <span>Galeri</span></a>
+            <span>Post</span></a>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->

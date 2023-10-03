@@ -15,4 +15,4 @@
 <!-- Custom styles for this template-->
 <link href="{{ asset('sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
-<script src="https://cdn.tiny.cloud/1/2cf150qkpc31nbqhbbmdnrraska4vxonztcjefftz0atjyqk/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/ausccx4z6qqsh06scnqnshr2yeglpv8ospv23rhiu49atxug/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>

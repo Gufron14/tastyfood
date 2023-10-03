@@ -2,5 +2,5 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h1>Hallo Bang Admin</h1>
+    <h3>Welcome to Tasty Food Panel</h3>
 @endsection
