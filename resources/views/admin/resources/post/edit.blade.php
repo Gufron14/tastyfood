@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('title', 'Create Post')
+@section('title', 'Edit Post')
 
 @section('content')
 
@@ -42,7 +42,7 @@
                 </textarea>
 
                 <div class="mt-3">
-                    <a href="list" class="btn btn-danger">
+                    <a href="{{ route('posts') }}" class="btn btn-danger">
                         <i class="far fa-times-circle"></i>
                         &nbsp;Cancel
                     </a>

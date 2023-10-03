@@ -68,7 +68,7 @@ class PostControler extends Controller
             $image->storeAs('public/thumbnail', $image->hashName());
 
             //delete old image
-            Storage::delete('public/thumbnail/'.$post->image);
+            Storage::delete('public/thumbnail/'.$post->thumbnail);
 
             //update post with new image
             $post->update([

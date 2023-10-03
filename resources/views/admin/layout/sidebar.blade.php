@@ -33,6 +33,12 @@
             <span>Post</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('gallery') }}">
+            <i class="fas fa-newspaper"></i>
+            <span>Gallery</span></a>
+    </li>
+
     <!-- Nav Item - Pages Collapse Menu -->
     {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"

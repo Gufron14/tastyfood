@@ -3,6 +3,7 @@
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PostControler;
 use App\Http\Controllers\ViewController;
@@ -19,46 +20,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// USER
+// ----------------------------------------- USER ----------------------------------------------------------------
 Route::get("/", function () {
     return view("index");
 });
 
 
+// ----------------------------------------- ADMIN ----------------------------------------------------------------
 
-Route::prefix('admin')->group(function(){
+// Auth Admin
+
+
+Route::get("dashboard", function () {
+    return view("admin.dashboard");
+});
+
+Route::prefix('admin/posts')->group(function(){
     Route::get('list', [PostControler::class, 'index'])->name('posts'); // Show List Post Page
     Route::get('create', [PostControler::class, 'create']); // Show Create Post Page
     Route::post('create', [PostControler::class, 'store'])->name('posts.store'); // Do Create Post
 
-    Route::get('edit/{post}', [PostControler::class, 'edit'])->name('posts.edit');
-    Route::put('edit/{post}', [PostControler::class, 'update'])->name('posts.update');
+    Route::get('edit/{post}', [PostControler::class, 'edit'])->name('posts.edit'); // Show Edit Post Page
+    Route::put('edit/{post}', [PostControler::class, 'update'])->name('posts.update'); // Do Update Post
 
-    Route::delete('list/{post}', [PostControler::class, 'destroy'])->name('posts.delete');
+    Route::delete('list/{post}', [PostControler::class, 'destroy'])->name('posts.delete'); // Do Delete Post
 });
 
-// Route::get("berita", function () {
-//     return view("admin.berita");
-// });
+Route::prefix('admin/gallery')->group(function(){
+    Route::get('list', [GalleryController::class, 'index'])->name('gallery'); // Show List Gallery Page
+    Route::get('create', [GalleryController::class, 'create']); // Show Add Gallery Page
+    Route::post('create', [GalleryController::class, 'store'])->name('gallery.store'); // Do Create Gallery
 
-// Route::get('news', [ViewController::class,'news'])->name('news');
+    Route::get('edit/{gallery}', [GalleryController::class, 'edit'])->name('gallery.edit'); // Show Edit Gallery Page
+    Route::put('edit/{gallery}', [GalleryController::class, 'update'])->name('gallery.update'); // Do Update Gallery
 
-// // ADMIN
-// Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
-
-// // ----> Berita
-// Route::get('berita', [BeritaController::class,'index'])->name('admin.berita'); // Show Berita
-// Route::post('berita', [BeritaController::class,'store'])->name('berita.store'); // Create Berita
-// Route::get('/berita/edit/{id}', [BeritaController::class,'edit'])->name('berita.edit'); // Show Edit
-// Route::put('/berita/{id}', [BeritaController::class, 'update'])->name('berita.update'); // Do Update
-// Route::delete('berita/{berita}', [BeritaController::class,'destroy'])->name('berita.destroy'); // Do Delete
-
-// // ----> Galeri
-// Route::get('/galeri', [GaleriController::class, 'index'])->name('admin.galeri'); // Show Galeri
-// Route::post('galeri', [GaleriController::class, 'store'])->name('galeri.store'); // Create Galeri
-// // -------------> Edit Galeri <------------
-// Route::get('/galeri/edit/{id}', [GaleriController::class, 'edit'])->name('berita.edit'); // Show Edit
-// Route::put('galeri/{id}', [GaleriController::class, 'update'])->name('galeri.update'); // Do Update
-
-// // -------------> Delete Galeri <------------
-// Route::delete('galeri/{galeri}', [GaleriController::class, 'destroy'])->name('galeri.destroy'); // Do Delete
+    Route::delete('list/{gallery}', [GalleryController::class, 'destroy'])->name('gallery.delete'); // Do Delete Post
+});
