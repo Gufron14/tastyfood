@@ -11,16 +11,16 @@
     <!-- KONTEN -->
     <div class="container-fluid">
 
-        @foreach ($berita as $item)
+        @foreach ($posts as $post)
             <div class="container p-5 mt-5 gap-5 d-lg-flex justify-content-between">
                 <div class="col-lg-6 mb-5">
                     <div class="image-frame4" data-aos="fade-right">
-                        <img src="{{ asset($item->gambar) }}" class="w-100 h-100 rounded object-fit-cover" alt="">
+                        <img src="{{ asset($post->thumbnail) }}" class="w-100 h-100 rounded object-fit-cover" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-12">
-                    <h3 class="fw-bold mb-3" data-aos="fade-left">{{ $item->judul }}</h3>
-                    <p data-aos="fade-left" id="konten">{{ $item->konten }}</p>
+                    <h3 class="fw-bold mb-3" data-aos="fade-left">{{ $post->title }}</h3>
+                    <p data-aos="fade-left" id="konten">{{ $post->content }}</p>
                     <div data-aos="fade-left">
                         <button class="button mt-5 fw-bold">
                             <a href="">BACA SELENGKAPNYA</a>
