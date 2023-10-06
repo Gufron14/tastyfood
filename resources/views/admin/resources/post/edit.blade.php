@@ -4,11 +4,18 @@
 
 @section('content')
 
-    @if (session('success'))
+    {{-- @if (session('success'))
         <div class="alert alert-success">
-            {{ session('success') }} 
+            <i class="bi bi-check-circle-fill"></i> &nbsp;{{ session('success') }} 
         </div>
-    @endif
+    @endif --}}
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('posts') }}">Post</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Edit</li>
+        </ol>
+    </nav>
 
     <div class="card shadow">
         <div class="card-header">
@@ -20,20 +27,21 @@
             <form action="{{ route('posts.update', $posts->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="row">
-                    <div class="col-md-8">
+                <div class="row mb-3">
+                    <div class="col-md-6">
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" name="title" id="title" class="form-control"
                                 value="{{ old('title', $posts->title) }}">
                         </div>
-                    </div>
-
-                    <div class="col-md-4">
                         <div class="mb-3">
                             <label for="thumbnail" class="form-label">Thumbnail</label>
                             <input type="file" name="thumbnail" id="thumbnail" class="form-control">
                         </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <img src="{{ asset('thumbnail/'. $posts->thumbnail) }}" alt="{{ $posts->thumbnail }}" width="300px" class="border border-secondary border-2 rounded">
                     </div>
                 </div>
 

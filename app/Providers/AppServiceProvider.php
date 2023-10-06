@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Message;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        view()->composer('admin.layout.topbar', function ($view) {
+            $messages = Message::orderBy('created_at', 'desc')->limit(4)->get();
+            $view->with('messages', $messages);
+        });
     }
 
     /**
@@ -23,6 +28,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('admin.layout.topbar', function ($view) {
+            $totalMessage = Message::count();
+            $view->with('totalMessage', $totalMessage);
+        });
     }
 }

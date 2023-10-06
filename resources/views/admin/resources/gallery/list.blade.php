@@ -4,11 +4,11 @@
 
 @section('content')
 
-    @if (session('success'))
+    {{-- @if (session('success'))
         <div class="alert alert-success">
-            {{ session('success') }}
+            <i class="bi bi-check-circle-fill"></i> &nbsp; {{ session('success') }}
         </div>
-    @endif
+    @endif --}}
 
     <div class="card shadow">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
@@ -32,7 +32,7 @@
                         @forelse ($galleries as $item)
                             <tr>
                                 <td>
-                                    <img src="/storage/public/galleries/{galleries}" alt="">  </td>
+                                    <img src="{{ asset('image/'. $item->image) }}" alt="{{ $item->image }}" width="300px">  </td>
                                 <td>
                                     <a href="{{ route('gallery.edit', $item->id) }}" class="btn btn-warning mb-2">
                                         <i class="fas fa-pen-square"></i>

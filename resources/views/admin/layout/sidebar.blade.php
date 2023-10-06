@@ -35,8 +35,22 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('gallery') }}">
-            <i class="fas fa-newspaper"></i>
+            <i class="fas fa-images"></i>
             <span>Gallery</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('slider') }}">
+            <i class="far fa-image"></i>
+            <span>Slider</span></a>
+    </li>
+
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('message') }}">
+            <i class="fas fa-envelope"></i>
+            <span>Message</span></a>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->

@@ -23,17 +23,21 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $image = $request->file('image');
-        $image->storeAs('public/galleries', $image->hashName());
+        $image_extension = $image->extension();
+        $image_name = date('ymdhis') . '.' . $image_extension;
+        $image->move(public_path('image'), $image_name);
 
         Gallery::create([
-            'image' => $image->hashName()
+            'image' => $image_name,
         ]);
 
-        return redirect()->back()->with('success', 'Image Added.');
+        return redirect()
+            ->back()
+            ->with('success', 'Image Added.');
     }
 
     public function edit(Gallery $gallery)
@@ -46,32 +50,37 @@ class GalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        if($request->hasFile('image')) {
-
+        if ($request->hasFile('image')) {
             // upload new image
             $image = $request->file('image');
-            $image->storeAs('public/galleries', $image->hashName());
+            $image_extension = $image->extension();
+            $image_name = date('ymdhis') . '.' . $image_extension;
+            $image->move(public_path('image'), $image_name);
 
             // delete old image
-            Storage::delete('public/galleries'.$gallery->image);
+            Storage::delete(public_path('image' . $gallery->id));
 
             $gallery->update([
-                'image' => $image->hashName()
+                'image' => $image_name
             ]);
         }
 
-        return redirect()->back()->with('success', 'Image Updated.');
-    } 
+        return redirect()
+            ->back()
+            ->with('success', 'Image Updated.');
+    }
 
     public function destroy(Gallery $gallery)
     {
-        Storage::delete('public/galleries'.$gallery->image);
+        Storage::delete('public/galleries' . $gallery->image);
 
         $gallery->delete();
 
-        return redirect()->back()->with('success', 'Image Deleted.');
+        return redirect()
+            ->back()
+            ->with('success', 'Image Deleted.');
     }
 }

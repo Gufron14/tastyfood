@@ -1,12 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\NewsController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostControler;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +26,8 @@ Route::get('about', [ViewController::class, 'about'])->name('about');
 Route::get('news', [ViewController::class, 'news'])->name('news');
 Route::get('galery', [ViewController::class, 'galery'])->name('galery');
 Route::get('contact', [ViewController::class, 'contact'])->name('contact');
+
+Route::get('viewberita/{post}', [ViewController::class, 'viewberita'])->name('viewberita');
 
 
 // ----------------------------------------- ADMIN ----------------------------------------------------------------
@@ -66,5 +67,23 @@ Route::middleware('isLogin')->group(function(){
         Route::put('edit/{gallery}', [GalleryController::class, 'update'])->name('gallery.update'); // Do Update Gallery
     
         Route::delete('list/{gallery}', [GalleryController::class, 'destroy'])->name('gallery.delete'); // Do Delete Post
+    });
+
+    Route::prefix('admin/slider')->group(function(){
+        Route::get('list', [SliderController::class, 'index'])->name('slider');
+        Route::get('create', [SliderController::class, 'create']);
+        Route::post('create', [SliderController::class, 'store'])->name('slider.store');
+
+        Route::get('edit/{slider}', [SliderController::class, 'edit'])->name('slider.edit');
+        Route::put('edit/{slider}', [SliderController::class, 'update'])->name('slider.update');
+
+        Route::delete('list/{slider}', [SliderController::class, 'destroy'])->name('slider.delete');
+    });
+
+    Route::prefix('admin/messages')->group(function(){
+        Route::get('message', [MessageController::class, 'index'])->name('message');
+        Route::get('viewmessage/{message}', [MessageController::class, 'viewmessage'])->name('viewmessage');
+        Route::post('/contact', [MessageController::class, 'store'])->name('message.send');
+        Route::delete('message/{message}', [MessageController::class, 'destroy'])->name('message.delete');
     });
 });

@@ -4,11 +4,11 @@
 
 @section('content')
 
-    @if (session('success'))
+    {{-- @if (session('success'))
         <div class="alert alert-success">
-            {{ session('success') }}
+            <i class="bi bi-check-circle-fill"></i> &nbsp; {{ session('success') }}
         </div>
-    @endif
+    @endif --}}
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
@@ -36,7 +36,7 @@
                                 <td>{{ $post->title }}</td>
                                 <td>{{ strip_tags($post->content) }}</td>
                                 <td>
-                                    <img src="{{ asset('storage/thumbnail/'.$post->thumbnail) }}" alt="">
+                                    <img src="{{ asset('thumbnail/'. $post->thumbnail) }}" alt="{{ $post->thumbnail }}" width="300px">
                                 </td>
                                 <td class="">
                                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning mb-2">

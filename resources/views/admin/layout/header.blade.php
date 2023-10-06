@@ -15,4 +15,26 @@
 <!-- Custom styles for this template-->
 <link href="{{ asset('sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
-<script src="https://cdn.tiny.cloud/1/ausccx4z6qqsh06scnqnshr2yeglpv8ospv23rhiu49atxug/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/ausccx4z6qqsh06scnqnshr2yeglpv8ospv23rhiu49atxug/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+
+    {{-- PUSHER --}}
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script>
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('0e42788b3259b906d514', {
+            cluster: 'ap1'
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+            alert(JSON.stringify(data));
+        });
+    </script>
+    {{-- END PUSHER --}}

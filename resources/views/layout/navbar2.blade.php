@@ -13,19 +13,24 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto gap-lg-3">
                         <li class="nav-item {{ Request::path() == '/' ? 'active' : '' }}">
-                            <a href="/" class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">HOME</a>
+                            <a href="/"
+                                class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">HOME</a>
                         </li>
                         <li class="nav-item {{ Request::path() == 'about' ? 'active' : '' }}">
-                            <a href="/about" class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">TENTANG</a>
+                            <a href="/about"
+                                class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">TENTANG</a>
                         </li>
                         <li class="nav-item {{ Request::path() == 'news' ? 'active' : '' }}">
-                            <a href="/news" class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">BERITA</a>
+                            <a href="/news"
+                                class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">BERITA</a>
                         </li>
                         <li class="nav-item {{ Request::path() == 'galery' ? 'active' : '' }}">
-                            <a href="/galery" class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">GALERI</a>
+                            <a href="/galery"
+                                class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">GALERI</a>
                         </li>
                         <li class="nav-item {{ Request::path() == 'contact' ? 'active' : '' }}">
-                            <a href="/contact" class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">KONTAK</a>
+                            <a href="/contact"
+                                class="nav-link {{ Request::path() == '/' ? 'text-black' : 'text-white' }}"">KONTAK</a>
                         </li>
                     </ul>
                 </div>
@@ -34,11 +39,20 @@
         <!-- END NAVBAR -->
 
         <div class="mt-5">
-            <h1 class="fw-bold" data-aos="fade-right">
-                @yield('title-page')
-            </h1>
+            @if (Request::is('news'))
+                <h1 class="fw-bold" data-aos="fade-right">
+                    @yield('title-page')
+                </h1>
+            @else
+                <nav aria-label="breadcrumb">
+                    {{-- <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('news') }}">Berita</a></li>
+                        <li class="breadcrumb-item active text-primary" aria-current="page">{{ $posts->title }}</li>
+                    </ol>
+                </nav> --}}
+            @endif
         </div>
-        
+
     </div>
 </div>
 
@@ -47,7 +61,7 @@
     var navbar = document.querySelector(".navbar");
 
     // Menambahkan event listener untuk scroll halaman
-    window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", function() {
         // Mendapatkan posisi scroll halaman
         var scrollPos = window.scrollY;
 

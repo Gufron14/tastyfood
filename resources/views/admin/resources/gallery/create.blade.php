@@ -4,16 +4,23 @@
 
 @section('content')
 
-    @if (session('success'))
+    {{-- @if (session('success'))
         <div class="alert alert-success">
-            {{ session('success') }}
+            <i class="bi bi-check-circle-fill"></i> &nbsp; {{ session('success') }}
         </div>
-    @endif
+    @endif --}}
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="list">Gallery</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Create</li>
+        </ol>
+    </nav>
 
     <div class="card shadow">
         <div class="card-header">
             <div class="text-primary font-weight-bold">
-                Galleries
+                Add Gallery Image
             </div>
         </div>
         <div class="card-body">
