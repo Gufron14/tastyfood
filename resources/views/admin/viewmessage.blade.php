@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td>Date</td>
-                    <td>: {{ $messages->created_at }}
+                    <td>: {{ $messages->created_at->format('l, d-m-Y h.i A') }}
                     </td>
                 </tr>
             </table>

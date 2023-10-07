@@ -16,7 +16,7 @@
                 List Post
             </div>
             <div>
-                <a href="create" class="btn btn-warning font-weight-bold">Create New Post</a>
+                <a href="create" class="btn btn-primary font-weight-bold">Create New Post</a>
             </div>
         </div>
         <div class="card-body">
@@ -34,9 +34,9 @@
                         @forelse ($posts as $post)
                             <tr>
                                 <td>{{ $post->title }}</td>
-                                <td>{{ strip_tags($post->content) }}</td>
+                                <td>{{ strip_tags(Str::limit($post->content, 200)) }}</td>
                                 <td>
-                                    <img src="{{ asset('thumbnail/'. $post->thumbnail) }}" alt="{{ $post->thumbnail }}" width="300px">
+                                    <img src="{{ asset('thumbnail/'. $post->thumbnail) }}" alt="{{ $post->thumbnail }}" class="image-admin rounded object-fit-cover border">
                                 </td>
                                 <td class="">
                                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning mb-2">
@@ -58,7 +58,7 @@
                                     Post Empty.
                                 </div>
                                 <div class="mt-3">
-                                    <a href="create" class="btn btn-warning font-weight-bold">Add New Post</a>
+                                    <a href="create" class="btn btn-primary font-weight-bold">Add New Post</a>
                                 </div>
                             </td>
                         @endforelse

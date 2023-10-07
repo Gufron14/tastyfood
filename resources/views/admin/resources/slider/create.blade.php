@@ -45,7 +45,7 @@
                         <div>
                             <label for="status" class="form-label">Status</label>
                             <select class="custom-select" aria-label="Default select example" id="status" name="status">
-                                <option mute selected>-- Select Status --</option>
+                                <option selected>-- Select Status --</option>
                                 <option value="1">Publish</option>
                                 <option value="0">unPublish</option>
                             </select>

@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // ----------------------------------------- USER ----------------------------------------------------------------
-Route::get('/', [ViewController::class, 'index']);
+Route::get('/', [ViewController::class, 'index'])->name('index');
 Route::get('about', [ViewController::class, 'about'])->name('about');
 Route::get('news', [ViewController::class, 'news'])->name('news');
 Route::get('galery', [ViewController::class, 'galery'])->name('galery');

@@ -19,6 +19,7 @@
     background-color: #ffffff; /* Warna background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan (opsional) */
     transition: background-color 0.1s, color 0.1s; /* Animasi perubahan background color dan color */
+    height: 48px;
 }
 
 /* BUTTON HOVER */
@@ -225,6 +226,27 @@ li {
 
 .image-frame4:hover img {
     transform: scale(1.1); /* Perbesar gambar sebanyak 10% saat hover */
+}
+
+.news-thumbnail {
+    width: 600px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.view-thumbnail {
+    width: 200px;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery {
+    width: 240px;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
 }
 
 .bungkus {

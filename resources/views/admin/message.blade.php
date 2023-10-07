@@ -29,7 +29,7 @@
                                 </td>
                                 <td>{{ $message->subject }}</td>
                                 <td>{{ $message->message }}</td>
-                                <td>{{ $message->created_at }}</td>
+                                <td>{{ $message->created_at->format('l, d-m-Y h.i A') }}</td>
                                 <td>
                                     <a href="{{ route('viewmessage', $message->id) }}" class="btn btn-info">
                                         <i class="fas fa-eye"></i>

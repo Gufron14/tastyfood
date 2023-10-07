@@ -21,20 +21,41 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 
+{{-- PUSHER --}}
+<script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+<script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
 
-    {{-- PUSHER --}}
-    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
-    <script>
-        // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
+    var pusher = new Pusher('0e42788b3259b906d514', {
+        cluster: 'ap1'
+    });
 
-        var pusher = new Pusher('0e42788b3259b906d514', {
-            cluster: 'ap1'
-        });
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+        alert(JSON.stringify(data));
+    });
+</script>
+{{-- END PUSHER --}}
 
-        var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function(data) {
-            alert(JSON.stringify(data));
-        });
-    </script>
-    {{-- END PUSHER --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+
+<style>
+    .image-admin {
+        width: 200px;
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .object-fit-cover {
+        object-fit: cover;
+    }
+
+    .thumbnail {
+        width: 90%;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+</style>

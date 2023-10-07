@@ -16,20 +16,50 @@
         </div>
     @endif
 
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <!-- KONTEN -->
     <div class="container p-5">
         <h4 class="fw-bold mb-5" data-aos="fade-right">KONTAK KAMI</h4>
         <form action="{{ route('message.send') }}" method="POST">
             @csrf
-            <div class="row d-lg-flex mb-5">
+            <div class="row d-lg-flex mb-3">
                 <div class="col-lg-6 col-sm-12" data-aos="fade-right">
-                    <input class="form-control form-control-lg mb-3" name="subject" id="subject" type="text" placeholder="subject" aria-label=".form-control-lg mb-3 example">
-                    <input class="form-control form-control-lg mb-3" name="name" id="name" type="text" placeholder="name" aria-label=".form-control-lg mb-3 example">
-                    <input class="form-control form-control-lg mb-3" name="email" id="email" type="email" placeholder="email" aria-label=".form-control-lg mb-3 example">
-                </div>
+                    <div class="form-group mb-3">
+                        <input class="form-control form-control-lg" name="subject" id="subject" type="text" placeholder="Subject" aria-label=".form-control-lg mb-3 example"> @error('subject')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-3">
+                        <input class="form-control form-control-lg" name="name" id="name" type="text" placeholder="Name" aria-label=".form-control-lg mb-3 example">
+                        @error('name')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-3">
+                        <input class="form-control form-control-lg" name="email" id="email" type="email" placeholder="Email" aria-label=".form-control-lg mb-3 example">
+                        @error('email')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
+                    </div>
+                    </div>
                 <div class="col-lg-6 col-sm-12" data-aos="fade-right" data-aos-duration="1100">
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" name="message" id="message"
-                    placeholder="message"></textarea>
+                    placeholder="Message"></textarea>@error('email')
+                    <small class="text-danger">
+                        {{ $message }}
+                    </small>
+                @enderror
                 </div>
             </div>
             <div data-aos="zoom-in">

@@ -54,8 +54,9 @@
                             <div class="mb-3">
                                 <label for="status" class="form-label">Status</label>
                                 <select class="custom-select" aria-label="Default select example" name="status" id="status">
+                                    <option selected>-- Select Status --</option>
                                     <option value="1">Publish</option>
-                                    <option value="0">Not Publish</option>
+                                    <option value="0">unPublish</option>
                                 </select>
                             </div>
                         </div>

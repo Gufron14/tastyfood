@@ -13,10 +13,12 @@
     <div class="container p-5">
         <div class="slider">
             <div class="list">
-                @foreach ($sliders as $slider)    
-                    <div class="item">
-                        <img src="{{ asset('slider/' . $slider->image) }}" alt="">
-                    </div>
+                @foreach ($sliders as $slider)
+                    @if ($slider->status == 1)    
+                        <div class="item">
+                            <img src="{{ asset('slider/' . $slider->image) }}" alt="{{ $slider->image }}">
+                        </div>
+                    @endif
                 @endforeach
                 {{-- <div class="item">
                     <img src="{{ asset('assets/img/anh-nguyen-kcA-c3f_3FE-unsplash.jpg') }}" alt="">
@@ -33,8 +35,9 @@
             </div>
             <div class="buttons">
                 <button id="prev">
-                    <</button>
-                        <button id="next">></button>
+                    < 
+                </button>
+                        <button id="next"> > </button>
             </div>
             <ul class="dots">
                 <li class="active"></li>
@@ -51,8 +54,7 @@
         <div class="row d-flex justify-content-center align-items-center mb-3" data-aos="fade-right">
             @foreach ($galleries as $image)
                 <div class="image-galery mb-3">
-                    <img src="{{ asset('image/'. $image->image) }}"
-                        class="w-100 h-100 object-fit-cover" alt="">
+                    <img src="{{ asset('image/' . $image->image) }}" class="w-100 h-100 object-fit-cover" alt="">
                 </div>
             @endforeach
         </div>

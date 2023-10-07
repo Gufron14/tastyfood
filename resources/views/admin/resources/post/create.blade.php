@@ -10,59 +10,55 @@
         </div>
     @endif --}}
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="list">Post</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Create</li>
-        </ol>
-    </nav>
 
-    <div class="card shadow">
-        <div class="card-header">
-            <div class="text-primary font-weight-bold">
-                Create Post
+
+    <div class="card shadow mb-4">
+            <div class="p-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item my-auto"><a href="list">Post</a></li>
+                        <li class="breadcrumb-item font-weight-bold active" aria-current="page">Create</li>
+                    </ol>
+                </nav>
             </div>
-        </div>
         <div class="card-body">
             <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-md-8">
-                        <div class="mb-3">
+                    <div class="col-md-8 form-group">
+                        <div class="">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" name="title" id="title" class="form-control
-                            @error('title')
-                                is-invalid
-                            @enderror">
+                            <input type="text" name="title" id="title"
+                                class="form-control">
                         </div>
                         @error('title')
-                            <div class="text-danger">
+                            <small class="text-danger">
                                 {{ $message }}
-                            </div>
+                            </small>
                         @enderror
                     </div>
 
                     <div class="col-md-4">
-                        <div class="mb-3">
+                        <div class="">
                             <label for="thumbnail" class="form-label">Thumbnail</label>
-                            <input type="file" name="thumbnail" id="thumbnail" class="form-control
-                            @error('thumbnail')
-                                is-invalid
-                            @enderror">
+                            <input type="file" name="thumbnail" id="thumbnail"
+                                class="form-control">
                         </div>
                         @error('thumbnail')
-                            <div class="text-danger">
+                            <small class="text-danger">
                                 {{ $message }}
-                            </div>
+                            </small>
                         @enderror
                     </div>
                 </div>
 
-                <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('thumbnail') is-invalid @enderror"></textarea>
+                {{-- <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('thumbnail') is-invalid @enderror"></textarea> --}}
+
+                <textarea name="content" id="editor" cols="30" rows="20"></textarea>
                 @error('content')
-                    <div class="text-danger">
+                    <small class="text-danger">
                         {{ $message }}
-                    </div>
+                    </small>
                 @enderror
 
                 <div class="mt-3">
@@ -84,9 +80,12 @@
 
 
     {{-- <-----------------------------------------------------------------> --}}
-
-
     <script>
+        CKEDITOR.replace( 'editor' );
+    </script>
+
+
+    {{-- <script>
         tinymce.init({
             selector: 'textarea',
             plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
@@ -105,5 +104,5 @@
             ai_request: (request, respondWith) => respondWith.string(() => Promise.reject(
                 "See docs to implement AI Assistant"))
         });
-    </script>
+    </script> --}}
 @endsection

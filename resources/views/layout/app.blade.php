@@ -13,7 +13,7 @@
         @if (Request::is('login') || Request::is('register'))
         
         @else
-            @if (Request::is('/'))
+            @if (Request::is('/') || Request::is('viewberita/{post}'))
                 @include('layout.navbar')
             @else
                 @include('layout.navbar2')

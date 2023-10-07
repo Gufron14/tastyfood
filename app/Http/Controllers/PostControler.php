@@ -25,7 +25,7 @@ class PostControler extends Controller
     {
         //validate form
         $this->validate($request, [
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             'title' => 'required|min:5',
             'content' => 'required|min:10',
         ]);
@@ -60,7 +60,7 @@ class PostControler extends Controller
     {
         //validate form
         $this->validate($request, [
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             'title' => 'required|min:5',
             'content' => 'required|min:10',
         ]);

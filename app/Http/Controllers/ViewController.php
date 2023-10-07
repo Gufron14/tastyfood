@@ -15,7 +15,6 @@ class ViewController extends Controller
 
     public function index()
     {
-        event(new NewMessageNotification('hello world'));
         return view('index');
     }
 
@@ -47,8 +46,10 @@ class ViewController extends Controller
     public function viewberita(Post $post)
     {
         $posts = Post::find($post->id);
+        $thumbnails = Post::all();
+        $galleries = Gallery::latest()->limit(3)->get();
 
-        return view('viewberita', compact('posts'));
+        return view('viewberita', compact('posts', 'thumbnails', 'galleries'));
     }
 
 }
