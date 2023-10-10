@@ -31,8 +31,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6 ">
-                            <div class="rounded">
-                                <img class="rounded" src="{{ asset('slider/' . $sliders->image ) }}" alt="{{ $sliders->image }}" width="400px">
+                            <div class="edit-slider">
+                                <img class="rounded w-100 h-100 object-fit-cover" src="{{ asset('slider/' . $sliders->image ) }}" alt="{{ $sliders->image }}" width="400px">
                             </div>
                         </div>
                         <div class="col-6 ">
@@ -45,11 +45,6 @@
                                 <label for="description" class="form-label">Description</label>
                                 <input type="text" name="description" id="description" class="form-control" value="{{ old('description', $sliders->description) }}">
                             </div>
-                            @error('description')
-                                <small class="text-danger">
-                                    {{ $message }}
-                                </small>
-                            @enderror
                     
                             <div class="mb-3">
                                 <label for="status" class="form-label">Status</label>
