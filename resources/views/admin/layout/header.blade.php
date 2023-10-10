@@ -72,4 +72,11 @@
         overflow: hidden;
         position: relative;
     }
+    
+    .edit-slider {
+        width: 400px;
+        height: 260px;
+        overflow: hidden;
+        position: relative;
+    }
 </style>
