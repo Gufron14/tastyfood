@@ -31,7 +31,7 @@
                                 <td>{{ $message->message }}</td>
                                 <td>{{ $message->created_at->format('l, d-m-Y h.i A') }}</td>
                                 <td>
-                                    <a href="{{ route('viewmessage', $message->id) }}" class="btn btn-info">
+                                    <a href="{{ route('viewmessage', $message->id) }}" class="btn btn-warning mb-2">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                     <form action="{{ route('message.delete', $message->id) }}" method="POST">

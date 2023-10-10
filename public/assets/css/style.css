@@ -19,7 +19,6 @@
     background-color: #ffffff; /* Warna background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan (opsional) */
     transition: background-color 0.1s, color 0.1s; /* Animasi perubahan background color dan color */
-    height: 48px;
 }
 
 /* BUTTON HOVER */
@@ -138,14 +137,14 @@ li {
 }
 
 .card:hover {
-    transform: scale(1.05); /* Increase the size of the card on hover */
+    transform: scale(1.01); /* Increase the size of the card on hover */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
 }
 
 .card-img-top {
     width: 100%;
-    height: 200px; /* Sesuaikan tinggi gambar sesuai kebutuhan Anda */
-    object-fit: cover; /* Membuat gambar mengisi elemen tanpa stretching */
+    height: 200px;
+    object-fit: cover;
 }
 
 .card-selected:hover {
@@ -162,21 +161,22 @@ li {
 }
 
 .image-frame {
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 260px;
     overflow: hidden;
     position: relative;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .image-frame img {
-    transition: transform 0.3s; /* Animasi transisi selama 0.3 detik */
-    border-radius: 12px;
+    transition: transform 0.3s;
+    border-radius: 8px;
 }
 
 .image-frame:hover img {
-    transform: scale(1.1); /* Perbesar gambar sebanyak 10% saat hover */
+    transform: scale(1.1);
 }
+
 
 .image-frame2 {
     width: 225px;
@@ -277,8 +277,8 @@ li {
 /* Responsive di HP */
 @media screen and (max-width: 575px) {
     .image-frame {
-        width: 150px;
-        height: 150px;
+        width: 300px;
+        height: 300px;
         border-radius: 12px;
         /* background-color: #FFB300; */
     }

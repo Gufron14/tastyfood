@@ -58,4 +58,18 @@
         overflow: hidden;
         position: relative;
     }
+
+    .gallery {
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .slider {
+        width: 400px;
+        height: 160px;
+        overflow: hidden;
+        position: relative;
+    }
 </style>

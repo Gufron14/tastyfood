@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\NewMessageNotification;
-use App\Models\Berita;
+
 use App\Models\Gallery;
-use App\Models\News;
 use App\Models\Post;
 use App\Models\Slider;
-use Illuminate\Http\Request;
 
 class ViewController extends Controller
 {
 
     public function index()
-    {
-        return view('index');
+    {   
+        $latests = Post::latest()->limit(1)->get();
+        $posts = Post::latest()->limit(4)->get();
+        $galleries = Gallery::latest()->limit(6)->get();
+
+
+        return view('index', compact('latests', 'posts', 'galleries'));
     }
 
     public function about()
@@ -32,7 +34,7 @@ class ViewController extends Controller
     }
 
     public function galery()
-    {   
+    {    
         $galleries = Gallery::all();
         $sliders =  Slider::all();
 
@@ -47,8 +49,8 @@ class ViewController extends Controller
     public function viewberita(Post $post)
     {
         $posts = Post::find($post->id);
-        $thumbnails = Post::all();
-        $galleries = Gallery::latest()->limit(3)->get();
+        $thumbnails = Post::latest()->limit(4)->get();
+        $galleries = Gallery::latest()->limit(4)->get();
 
         return view('viewberita', compact('posts', 'thumbnails', 'galleries'));
     }

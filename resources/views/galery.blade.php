@@ -58,42 +58,6 @@
                 </div>
             @endforeach
         </div>
-        {{-- <div class="row d-flex justify-content-center align-items-center mb-3" data-aos="fade-left">
-            <div class="image-galery mb-3">
-                <img src="{{ asset('assets/img/brooke-lark-oaz0raysASk-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-galery mb-3">
-                <img src="{{ asset('assets/img/eiliv-aceron-ZuIDLSz3XLg-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-galery mb-3">
-                <img src="{{ asset('assets/img/fathul-abrar-T-qI_MI2EMA-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-galery mb-3">
-                <img src="{{ asset('assets/img/jimmy-dean-Jvw3pxgeiZw-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center align-items-center mb-3" data-aos="fade-right">
-            <div class="image-galery mb-3">
-                <img src="{{ asset('assets/img/luisa-brimble-HvXEbkcXjSk-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-galery mb-3">
-                <img src="{{ asset('assets/img/sebastian-coman-photography-eBmyH7oO5wY-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-galery mb-3">
-                <img src="{{ asset('assets/img/sanket-shah-SVA7TyHxojY-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-galery mb-3">
-                <img src="{{ asset('assets/img/monika-grabkowska-P1aohbiT-EY-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-        </div> --}}
     </div>
 
     <script src="{{ asset('assets/js/app.js') }}"></script>

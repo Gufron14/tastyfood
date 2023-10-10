@@ -10,13 +10,13 @@
         </div>
     @endif --}}
 
-    <div class="card shadow">
+    <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <div class="text-primary font-weight-bold">
                 List Slider Image
             </div>
             <div>
-                <a href="create" class="btn btn-warning font-weight-bold">Add New Image</a>
+                <a href="create" class="btn btn-primary font-weight-bold">Add New Image</a>
             </div>
         </div>
         <div class="card-body">
@@ -25,7 +25,7 @@
                     <thead>
                         <tr>
                             <th>Image</th>
-                            <th>Description</th>
+                            {{-- <th>Description</th> --}}
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -33,8 +33,11 @@
                     <tbody>
                         @forelse ($sliders as $slider)
                             <tr>
-                                <td> <img src="{{ asset('slider/' . $slider->image) }}" alt="{{ $slider->image }}" width="300px"> </td>
-                                <td> {{ $slider->description }} </td>
+                                <td>
+                                    <div class="slider mx-auto">
+                                        <img src="{{ asset('slider/' . $slider->image) }}" alt="{{ $slider->image }}" class="rounded w-100 h-100 object-fit-cover"> </td>
+                                    </div>
+                                {{-- <td> {{ $slider->description }} </td> --}}
                                 <td> 
                                     @if ($slider->status == 1)
                                         <div class="badge badge-success">
@@ -66,7 +69,7 @@
                                     Slider Image Empty.
                                 </div>
                                 <div class="mt-3">
-                                    <a href="create" class="btn btn-warning font-weight-bold">Add New Image</a>
+                                    <a href="create" class="btn btn-primary font-weight-bold">Add New Image</a>
                                 </div>
                             </td>
                         @endforelse

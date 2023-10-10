@@ -53,13 +53,16 @@
                 </button>
             </div>
         </div>
-        <div class="gambar" data-aos="fade-down-left">
-            <img src="{{ asset('assets/img/img-4-2000x2000.png') }}" width="800px" height="800px"
+        <div class="gambar" data-aos="fade-down-left" style="height: 500px">
+            <img src="{{ asset('assets/img/img-4-2000x2000.png') }}" width="800px"
             style="position: relative; top: -350px; left: 120px;" class="d-none d-lg-block"
-                 alt="">
+                 alt="navbar">
         </div>
     </div>
 </div>
+
+
+{{-- Script --}}
 
 <script>
     // Get the navbar element

@@ -23,7 +23,7 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
 
         $image = $request->file('image');
@@ -50,7 +50,7 @@ class GalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
 
         if ($request->hasFile('image')) {

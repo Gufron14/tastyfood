@@ -24,61 +24,25 @@
                             </div>
                             <form class="user" action="{{ route('doRegister') }}" method="POST">
                                 @csrf
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text"
-                                            class="form-control form-control-user @error('name')
-                                            is-invalid
-                                        @enderror"
-                                            id="name" name="name" placeholder="Your Name" required>
-                                        @error('name')
-                                            <div class="text-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
+                                
+                                {{-- Name --}}
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email"
-                                        class="form-control form-control-user @error('email')
-                                    is-invalid
-                                @enderror"
-                                        id="exampleInputEmail" placeholder="Email Address" required>
-                                    @error('email')
-                                        <div class="text-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <input type="text" name="name" id="id" class="form-control form-control-user" placeholder="Name">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" name="password" id="password"
-                                            class="form-control form-control-user @error('email')
-                                        is-invalid
-                                    @enderror"
-                                            id="exampleInputPassword" placeholder="Password">
-                                        @error('password')
-                                            <div class="text-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    {{-- <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
-                                    </div> --}}
+
+                                {{-- Email --}}
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" class="form-control form-control-user" placeholder="Email">
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">Daftar</button>
-                                {{-- <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a> --}}
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+
+                                {{-- Password --}}
+                                <div class="form-group">
+                                    <input type="password" name="password" id="password" class="form-control form-control-user" placeholder="Password">
+                                </div>
+
+                                <div>
+                                    <button type="submit" class="btn btn-user btn-primary w-100 fw-bold">Daftar</button>
+                                </div>
                             </form>
                             <hr>
                             <div class="text-center">

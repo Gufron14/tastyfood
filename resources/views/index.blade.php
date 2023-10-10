@@ -85,143 +85,63 @@
         <div class="container-fluid bg-light p-lg-5">
             <div class="container d-lg-inline-flex gap-5">
                 <div class="col-lg-5 mb-3">
-                    <div class="card" data-aos="fade-down-right">
-                        <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}" class="card-img-top"
-                            alt="" style="height: 400px">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Card Title</h5>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur dolor molestias
-                                pariatur
-                                illum at hic asperiores aperiam neque magnam cupiditate. Minus facere et dicta aperiam
-                                officiis
-                                totam quisquam voluptate, omnis cumque atque iusto aliquid nihil sequi necessitatibus magni
-                                accusantium quasi fuga quos quia a molestias amet dolorum asperiores maiores. Perferendis,
-                                quidem magnam excepturi at repudiandae beatae necessitatibus saepe dolor sit obcaecati hic
-                                quae
-                                tenetur tempore eius, debitis expedita numquam minus dolorem ab nam ullam voluptatem in
-                                quisquam. Repellat, hic molestias.
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a href="#" class="link-warning text-decoration-none">Baca selengkapnya</a>
+                    @foreach ($latests as $latest)
+                        <div class="card" data-aos="fade-down-right">
+                            <img src="{{ asset('thumbnail/' . $latest->thumbnail) }}" class="card-img-top" alt=""
+                                style="height: 400px">
+                            <div class="card-body p-lg-5">
+                                <h5 class="card-title fw-bold mb-4">{{ $latest->title }}</h5>
+                                <small class="card-text">
+                                    {{ strip_tags(Str::limit($latest->content, 700)) }}
+                                </small>
+                            </div>
+                            <small class="d-flex justify-content-between align-items-center p-lg-5">
+                                <a href="{{ route('viewberita', $latest->id) }}"
+                                    class="link-warning text-decoration-none">Baca selengkapnya</a>
                                 <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
-                            </div>
+                            </small>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-
-                <div class="d-lg-block-flex" data-aos="fade-down-left">
-                    <div class="row mb-3">
-                        <div class="col-lg-6 col-sm-12 mb-3">
-                            <div class="card">
-                                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                                    class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a href="#" class="link-warning text-decoration-none">Baca selengkapnya</a>
-                                        <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
-                                    </div>
-                                </div>
+                
+                <div class="row mb-3 gap-3">
+                    @foreach ($posts as $post)
+                        <div class="card" style="width: 260px">
+                            <img src="{{ asset('thumbnail/' . $post->thumbnail) }}" class="card-img-top" alt="">
+                            <div class="card-body px-4">
+                                <h6 class="card-title">{{ $post->title }}</h6>
+                                <small class="card-text">{{ strip_tags(Str::limit($post->content, 100)) }}</small>
                             </div>
+                            <small class="d-flex justify-content-between align-items-center px-4 mb-3">
+                                <a href="{{ route('viewberita', $post->id) }}" class="link-warning text-decoration-none">Baca selengkapnya</a>
+                                <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
+                            </small>
                         </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="card">
-                                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                                    class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a href="#" class="link-warning text-decoration-none">Baca selengkapnya</a>
-                                        <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-lg-6 col-sm-12 mb-3">
-                            <div class="card">
-                                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                                    class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a href="#" class="link-warning text-decoration-none">Baca selengkapnya</a>
-                                        <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="card">
-                                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                                    class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title fw-bold">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a href="#" class="link-warning text-decoration-none">Baca selengkapnya</a>
-                                        <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-        {{-- End Card Image 2 --}}
     </div>
 
-    {{-- Gallery --}}
-    <div class="container mt-5 p-5">
-        <div class="row d-lg-flex">
-            <div class="image-frame mx-auto mb-3" data-aos="zoom-in-down">
-                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
+        {{-- Gallery --}}
+        <div class="container" style="overflow-x: hidden;">
+            <div class="row gap-5 mx-auto p-5 mt-5">
+                @foreach ($galleries as $image)
+                    <div class="image-frame mx-auto" data-aos="zoom-in-down">
+                        <img src="{{ asset('image/'. $image->image) }}"
+                            class="w-100 h-100 object-fit-cover" alt="">
+                    </div>
+                @endforeach
             </div>
-            <div class="image-frame mx-auto mb-3" data-aos="zoom-in-down">
-                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-frame mx-auto mb-3" data-aos="zoom-in-down">
-                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-frame mx-auto mb-3" data-aos="zoom-in-down">
-                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-frame mx-auto mb-3" data-aos="zoom-in-down">
-                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
-            </div>
-            <div class="image-frame mx-auto mb-3" data-aos="zoom-in-down">
-                <img src="{{ asset('assets/img/anna-pelzer-IGfIGP5ONV0-unsplash.jpg') }}"
-                    class="w-100 h-100 object-fit-cover" alt="">
+            <div class="mb-5 mx-auto d-flex justify-content-center p-lg-5" data-aos="zoom-out">
+                <button class="button fw-bold w-100">
+                    <a href="">LEBIH BANYAK</a>
+                </button>
             </div>
         </div>
-        <div class="mt-5 mb-5" data-aos="zoom-out">
-            <button class="button fw-bold w-100">
-                <a href="">LEBIH BANYAK</a>
-            </button>
-        </div>
-    </div>
-    {{-- End Gallery --}}
 
 
-    {{-- SCRIPT --}}
-    <script src="{{ asset('assets/js/app.js') }}"></script>
-    <script src="{{ asset('assets/js/animasi.js') }}"></script>
-@endsection
+        {{-- SCRIPT --}}
+        <script src="{{ asset('assets/js/app.js') }}"></script>
+        <script src="{{ asset('assets/js/animasi.js') }}"></script>
+    @endsection
