@@ -30,24 +30,17 @@
 
                 <div class="row align-items-center">
                     <div class="col-4">
-                        <div>
-                            <img class="rounded" src="{{ asset('image/'. $galleries->image) }}" alt="" width="300px">
+                        <div class="gallery">
+                            <img class="rounded w-100 h-100 object-fit-cover" src="{{ asset('image/'. $galleries->image) }}" alt="{{ $galleries->image }}">
                         </div>
                     </div>
                     <div class="col-8">
                         <div>
                             <label for="image">Image</label>
                             <input type="file" name="image" id="image"
-                                class="form-control @error('image')
-                                is-invalid                        
-                            @enderror"
+                                class="form-control"
                                 value="{{ old('image', $galleries->id) }}">
                         </div>
-                        @error('image')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
         
                         <div class="mt-3">
                             <a href="{{route('gallery')}}" class="btn btn-danger">

@@ -50,7 +50,7 @@ class GalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
 
         if ($request->hasFile('image')) {
