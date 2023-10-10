@@ -41,7 +41,9 @@
                     </div>
                     
                     <div class="col-md-6">
-                        <img src="{{ asset('thumbnail/'. $posts->thumbnail) }}" alt="{{ $posts->thumbnail }}" width="300px" class="border border-secondary border-2 rounded">
+                        <div class="image-admin">
+                            <img src="{{ asset('thumbnail/'. $posts->thumbnail) }}" alt="{{ $posts->thumbnail }}" class="border border-secondary border-2 rounded w-100 h-100 object-fit-cover">
+                        </div>
                     </div>
                 </div>
 
