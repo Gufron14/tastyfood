@@ -16,12 +16,12 @@
                         <img src="{{ asset('thumbnail/'. $post->thumbnail) }}" class="w-100 h-100 rounded object-fit-cover" alt="ini gambar">
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-12">
-                    <h3 class="fw-bold text-justify" data-aos="fade-left">{{ $post->title }}</h3>
+                <div class="col-lg-6 col-sm-12 text-justify3">
+                    <h3 class="fw-bold" data-aos="fade-left">{{ $post->title }}</h3>
                     <small class="text-secondary" data-aos="fade-left">
                         <i class="fas fa-calendar-alt me-2"></i> {{ $post->created_at->format('l, d-m-Y') }}
                     </small>
-                    <p data-aos="fade-left" id="konten" class="mt-3 text-justify">{{  strip_tags(Str::limit($post->content, 500)) }}</p>
+                    <p data-aos="fade-left" id="konten" class="mt-3">{{  strip_tags(Str::limit($post->content, 460)) }}</p>
                     <div data-aos="fade-left">
                         <button class="button mt-2 fw-bold">
                             <a href="{{ route('viewberita', $post->id) }}">BACA SELENGKAPNYA</a>

@@ -106,6 +106,10 @@ li {
     /* line-height: 1.5; */
 }
 
+.text-justify3 {
+    text-align: justify;
+    line-height : 1.5;
+}
 
 .about .nav-link {
     color: white;
