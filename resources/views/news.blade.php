@@ -21,7 +21,7 @@
                     <small class="text-secondary" data-aos="fade-left">
                         <i class="fas fa-calendar-alt me-2"></i> {{ $post->created_at->format('l, d-m-Y') }}
                     </small>
-                    <p data-aos="fade-left" id="konten" class="mt-3">{{  strip_tags(Str::limit($post->content, 460)) }}</p>
+                    <p data-aos="fade-left" id="konten" class="mt-3">{!!  Str::limit($post->content, 460) !!}</p>
                     <div data-aos="fade-left">
                         <button class="button mt-2 fw-bold">
                             <a href="{{ route('viewberita', $post->id) }}">BACA SELENGKAPNYA</a>

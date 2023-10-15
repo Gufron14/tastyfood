@@ -34,7 +34,7 @@
                         @forelse ($posts as $post)
                             <tr>
                                 <td>{{ $post->title }}</td>
-                                <td>{{ strip_tags(Str::limit($post->content, 200)) }}</td>
+                                <td>{!! Str::limit($post->content, 200) !!}</td>
                                 <td>
                                     <img src="{{ asset('thumbnail/'. $post->thumbnail) }}" alt="{{ $post->thumbnail }}" class="image-admin rounded object-fit-cover border">
                                 </td>

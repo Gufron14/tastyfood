@@ -76,7 +76,7 @@
             </div>
 
             <p class="text-justify">
-                {{ strip_tags($posts->content) }}
+               {!! $posts->content !!}
             </p>
         </div>
     </div>
