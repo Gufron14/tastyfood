@@ -87,35 +87,48 @@
                 <div class="col-lg-5 mb-3">
                     @foreach ($latests as $latest)
                         <div class="card" data-aos="fade-down-right">
-                            <img src="{{ asset('thumbnail/' . $latest->thumbnail) }}" class="card-img-top" alt=""
-                                style="height: 400px">
-                            <div class="card-body p-lg-5">
+                            <img src="{{ asset('thumbnail/' . $latest->thumbnail) }}" class="card-img-top object-fit-cover"
+                                alt="" style="height: 400px">
+                            <div class="card-body text-justify2 p-5">
                                 <h5 class="card-title fw-bold mb-4">{{ $latest->title }}</h5>
                                 <small class="card-text">
                                     {{ strip_tags(Str::limit($latest->content, 700)) }}
                                 </small>
                             </div>
-                            <small class="d-flex justify-content-between align-items-center p-lg-5">
-                                <a href="{{ route('viewberita', $latest->id) }}"
-                                    class="link-warning text-decoration-none">Baca selengkapnya</a>
-                                <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
-                            </small>
+                            <div>
+                                <small class="d-flex justify-content-between align-items-center px-5 mb-4">
+                                    <a href="{{ route('viewberita', $latest->id) }}"
+                                        class="link-warning text-decoration-none">Baca selengkapnya</a>
+                                    <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
+                                </small>
+                            </div>
                         </div>
                     @endforeach
                 </div>
-                
-                <div class="row mb-3 gap-3">
+
+                <div class="row row-cols-1 row-cols-md-2 g-4">
                     @foreach ($posts as $post)
-                        <div class="card" style="width: 260px">
-                            <img src="{{ asset('thumbnail/' . $post->thumbnail) }}" class="card-img-top" alt="">
-                            <div class="card-body px-4">
-                                <h6 class="card-title">{{ $post->title }}</h6>
-                                <small class="card-text">{{ strip_tags(Str::limit($post->content, 100)) }}</small>
+                        <div class="col">
+                            <div class="card" style="width: 16rem">
+                                <img src="{{ asset('thumbnail/' . $post->thumbnail) }}"
+                                    class="card-img-top object-fit-cover" alt="{{ $post->thumbnail }}"
+                                    style=" height:200px;">
+                                <div class="card-body mt-3">
+                                    <h6 class="card-title fw-bold">{{ $post->title }}</h6>
+                                    <div class="card-text text-justify mt-3">
+                                        <small>
+                                            {{ strip_tags(Str::limit($post->content, 140)) }}
+                                        </small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small class="d-flex justify-content-between px-3 mb-3 mt-3">
+                                        <a href="{{ route('viewberita', $post->id) }}"
+                                            class="link-warning text-decoration-none">Baca selengkapnya</a>
+                                        <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
+                                    </small>
+                                </div>
                             </div>
-                            <small class="d-flex justify-content-between align-items-center px-4 mb-3">
-                                <a href="{{ route('viewberita', $post->id) }}" class="link-warning text-decoration-none">Baca selengkapnya</a>
-                                <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
-                            </small>
                         </div>
                     @endforeach
                 </div>
@@ -123,25 +136,24 @@
         </div>
     </div>
 
-        {{-- Gallery --}}
-        <div class="container" style="overflow-x: hidden;">
-            <div class="row gap-5 mx-auto p-5 mt-5">
-                @foreach ($galleries as $image)
-                    <div class="image-frame mx-auto" data-aos="zoom-in-down">
-                        <img src="{{ asset('image/'. $image->image) }}"
-                            class="w-100 h-100 object-fit-cover" alt="">
-                    </div>
-                @endforeach
-            </div>
-            <div class="mb-5 mx-auto d-flex justify-content-center p-lg-5" data-aos="zoom-out">
-                <button class="button fw-bold w-100">
-                    <a href="">LEBIH BANYAK</a>
-                </button>
-            </div>
+    {{-- Gallery --}}
+    <div class="container" style="overflow-x: hidden;">
+        <div class="row gap-5 mx-auto p-5 mt-5">
+            @foreach ($galleries as $image)
+                <div class="image-frame mx-auto" data-aos="zoom-in-down">
+                    <img src="{{ asset('image/' . $image->image) }}" class="w-100 h-100 object-fit-cover" alt="">
+                </div>
+            @endforeach
         </div>
+        <div class="mb-5 mx-auto d-flex justify-content-center p-lg-5" data-aos="zoom-out">
+            <button class="button fw-bold w-100">
+                <a href="">LEBIH BANYAK</a>
+            </button>
+        </div>
+    </div>
 
 
-        {{-- SCRIPT --}}
-        <script src="{{ asset('assets/js/app.js') }}"></script>
-        <script src="{{ asset('assets/js/animasi.js') }}"></script>
-    @endsection
+    {{-- SCRIPT --}}
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/animasi.js') }}"></script>
+@endsection

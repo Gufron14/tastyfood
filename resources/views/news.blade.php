@@ -17,11 +17,11 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-12">
-                    <h3 class="fw-bold" data-aos="fade-left">{{ $post->title }}</h3>
+                    <h3 class="fw-bold text-justify" data-aos="fade-left">{{ $post->title }}</h3>
                     <small class="text-secondary" data-aos="fade-left">
                         <i class="fas fa-calendar-alt me-2"></i> {{ $post->created_at->format('l, d-m-Y') }}
                     </small>
-                    <p data-aos="fade-left" id="konten" class="mt-3">{{  strip_tags(Str::limit($post->content, 500)) }}</p>
+                    <p data-aos="fade-left" id="konten" class="mt-3 text-justify">{{  strip_tags(Str::limit($post->content, 500)) }}</p>
                     <div data-aos="fade-left">
                         <button class="button mt-2 fw-bold">
                             <a href="{{ route('viewberita', $post->id) }}">BACA SELENGKAPNYA</a>
@@ -34,19 +34,22 @@
         <div class="container p-5">
             <h4 class="fw-bold mb-5" data-aos="fade-right">BERITA LAINNYA</h4>
 
-            <div class="row gap-3" data-aos="fade-up-left">
-                @foreach ($postsCard as $postCard)    
-                <div class="card news-card mb-3" style="width: 18rem;">
-                    <img src="{{ asset('thumbnail/' . $postCard->thumbnail) }}" class="card-img-top"
-                        alt="...">
-                    <div class="card-body p-4">
-                        <h6 class="card-title fw-bold text-uppercase">{{ $postCard->title }}</h6>
-                        <small class="card-text">{{ strip_tags(Str::limit($postCard->content, 200)) }}</small>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <small><a href="{{ route('viewberita', $postCard->id) }}" class="link-warning text-decoration-none">Baca selengkapnya</a>
-                                </small>
-                            <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
+            <div class="row row-cols-1 row-cols-md-4 g-4" data-aos="fade-up-left">
+                @foreach ($postsCard as $postCard)
+                <div class="col">
+                    <div class="card mb-3" style="width: 15rem;">
+                        <img src="{{ asset('thumbnail/' . $postCard->thumbnail) }}" class="card-img-top object-fit-cover"
+                            alt="..." style="height: 200px">
+                        <div class="card-body mt-3">
+                            <h6 class="card-title fw-bold text-uppercase">{{ $postCard->title }}</h6>
+                            <div class="card-text text-justify mt-3">
+                                <small>{{ strip_tags(Str::limit($postCard->content, 160)) }}</small>
+                            </div>
                         </div>
+                        <small class="d-flex justify-content-between px-3 mb-4">
+                            <a href="{{ route('viewberita', $postCard->id) }}" class="link-warning text-decoration-none">Baca selengkapnya</a>
+                            <a href="#" class="link-dark text-decoration-none fw-bold">•••</a>
+                        </small>
                     </div>
                 </div>
                 @endforeach

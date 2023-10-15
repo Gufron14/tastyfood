@@ -13,7 +13,7 @@ class ViewController extends Controller
     public function index()
     {   
         $latests = Post::latest()->limit(1)->get();
-        $posts = Post::latest()->limit(4)->get();
+        $posts = Post::orderBy('created_at', 'asc')->limit(4)->get();
         $galleries = Gallery::latest()->limit(6)->get();
 
 
