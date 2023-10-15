@@ -24,7 +24,6 @@ class SliderController extends Controller
     {
         $this->validate($request, [
             'image' => 'required|image|mimes:png,jpg|max:10000',
-            'description',
             'status' => 'required|in:0,1'
         ]);
 
@@ -35,7 +34,6 @@ class SliderController extends Controller
 
         Slider::create([
             'image' => $image_name,
-            'description' => $request->description,
             'status' => $request->status
         ]);
 
@@ -53,7 +51,6 @@ class SliderController extends Controller
     {
         $this->validate($request, [
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10000',
-            'description' => 'min:3',
             'status' => 'in:0,1'
         ]);
 
@@ -70,13 +67,11 @@ class SliderController extends Controller
 
             $slider->update([
                 'image' => $image_name,
-                'description' => $request->description,
                 'status' => $request->status
             ]);
             
         } else {
             $slider->update([
-                'description' => $request->description,
                 'status' => $request->status
             ]);
         }

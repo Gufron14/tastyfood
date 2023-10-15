@@ -53,7 +53,7 @@
                             <td colspan="4" class="text-center p-5">
                                 <i class="far fa-times-circle" style="font-size: 58px"></i>
                                 <div class="text-danger mt-3">
-                                    Empty.
+                                    Galleries Empty.
                                 </div>
                                 <div class="mt-3">
                                     <a href="create" class="btn btn-primary font-weight-bold">Add New Image</a>

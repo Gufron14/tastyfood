@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->string('description');
             $table->enum('status', ['0', '1']);
             $table->timestamps();
         });

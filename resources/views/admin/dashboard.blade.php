@@ -3,12 +3,6 @@
 
 @section('content')
 
-    @if (session('success'))
-        <div class="alert alert-success">
-            <i class="bi bi-check-circle-fill"></i> &nbsp; {{ session('success') }}
-        </div>
-    @endif
-
     <h4 class="py-3 font-weight-bold">Welcome
 
         @auth
