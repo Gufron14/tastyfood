@@ -27,7 +27,7 @@ class ViewController extends Controller
 
     public function news()
     {
-        $posts = Post::latest()->limit(2)->get();
+        $posts = Post::latest()->limit(1)->get();
         $postsCard = Post::first()->limit(6)->get();
 
         return view('news', compact('posts', 'postsCard'));

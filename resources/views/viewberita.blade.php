@@ -43,22 +43,6 @@
 </div>
 
 <div class="row justify-content-center gap-2 mb-5 mt-5">
-    <div class="col-3" style="height: 600px">
-        <h6 class="mb-3">Berita Lainnya</h6>
-        @foreach ($thumbnails as $thumbnail)
-            <div class="mb-4">
-                <a href="{{ route('viewberita', $thumbnail->id) }}">
-                    <div class="view-thumbnail mb-3">
-                        <img src="{{ asset('thumbnail/' . $thumbnail->thumbnail) }}" alt=""
-                            class="w-100 h-100 object-fit-cover rounded">
-                    </div>
-                    <small>
-                        {{ $thumbnail->title }}
-                    </small>
-                </a>
-            </div>
-        @endforeach
-    </div>
     <div class="col-5">
         <div class=" mb-5" style="width: 500px">
             <div class="d-flex justify-content-center">
@@ -79,15 +63,6 @@
                {!! $posts->content !!}
             </p>
         </div>
-    </div>
-    <div class="col-3" style="height: 600px">
-        <h6 class="mb-3">Gallery</h6>
-        @foreach ($galleries as $gallery)
-            <div class="gallery mb-3">
-                <img src="{{ asset('image/' . $gallery->image) }}" alt=""
-                    class="w-100 h-100 object-fit-cover rounded">
-            </div>
-        @endforeach
     </div>
 </div>
 
